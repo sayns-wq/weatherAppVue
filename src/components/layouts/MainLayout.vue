@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import IconSunny from '../icons/IconSunny.vue';
+import WeatherListItem from '../ui/WeatherListItem.vue';
 
 
 </script>
@@ -14,7 +15,7 @@ import IconSunny from '../icons/IconSunny.vue';
           <div class="weatherHeadBlock">
             <div class="weatherBlock">
               <div class="weatherIcon">
-                <IconSunny/>
+                <IconSunny size="64"/>
               </div>
               <div class="temperature">
                 14 C
@@ -32,21 +33,9 @@ import IconSunny from '../icons/IconSunny.vue';
           <div class="secondaryHead">Friday, May 19, 2023</div>
         </div>
         <div class="dateWeatherBlock">
-          <div class="dateWeatherItem">
-            <div class="dateWeatherItem-day">San</div>
-            <IconSunny/>
-            <div class="dateWeatherItem-weather">14 C</div>
-          </div>
-          <div class="dateWeatherItem">
-            <div class="dateWeatherItem-day">San</div>
-            <IconSunny/>
-            <div class="dateWeatherItem-weather">14 C</div>
-          </div>
-          <div class="dateWeatherItem">
-            <div class="dateWeatherItem-day">San</div>
-            <IconSunny/>
-            <div class="dateWeatherItem-weather">14 C</div>
-          </div>
+          <WeatherListItem/>
+          <WeatherListItem/>
+          <WeatherListItem/>
         </div>
       </div>
   </div>
@@ -96,11 +85,5 @@ import IconSunny from '../icons/IconSunny.vue';
 .dateWeatherBlock{
   display: flex;
   gap: 15px;
-}
-.dateWeatherItem{
-  background-color: #ffffff4b;
-  padding: 10px;
-  border-radius: 15px;
-  text-align: center;
 }
 </style>
