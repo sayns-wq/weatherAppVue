@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { useWeather, useWeatherWeek } from '@/composables/queries/useWeather';
+import { useWeather, useWeatherWeak } from '@/composables/queries/useWeather';
 import IconSunny from '../icons/IconSunny.vue';
 import WeatherListItem from '../ui/WeatherListItem.vue';
 import { ref } from 'vue';
 const location = ref('55.6744%2C37.8550')
 const { data: dataDay } = useWeather(location.value);
-const { data: dataWeek } = useWeatherWeek(location.value);
-console.log(dataWeek)
+const { data: dataWeek } = useWeatherWeak(location.value);
 </script>
 
 <template>
@@ -22,7 +21,7 @@ console.log(dataWeek)
                 <IconSunny size="64"/>
               </div>
               <div class="temperature">
-                {{dataDay}}
+                {{dataDay}} °C
               </div>
             </div>
             <div class="weatherdescription">
@@ -37,12 +36,11 @@ console.log(dataWeek)
           <div class="secondaryHead">Friday, May 19, 2023</div>
         </div>
         <div class="dateWeatherBlock">
-          <!-- <li v-for="dataOneDay in dataWeek" :key="dataOneDay">
-            {{ dataOneDay.temp }}
-          </li> -->
-          <WeatherListItem/>
-          <WeatherListItem/>
-          <WeatherListItem/>
+            <WeatherListItem  
+            v-for="dataOneDay in dataWeek" 
+            :key="dataOneDay" 
+            :temp="dataOneDay.temp" 
+            :day="dataOneDay.datetime"/>
         </div>
       </div>
   </div>
