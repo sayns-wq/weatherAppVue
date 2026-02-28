@@ -1,11 +1,18 @@
 <script setup lang="ts">
-import { useWeather, useWeatherWeak } from '@/composables/queries/useWeather';
-import IconSunny from '../icons/IconSunny.vue';
+import { useWeather, useWeatherIcon, useWeatherWeak } from '@/composables/queries/useWeather';
 import WeatherListItem from '../ui/WeatherListItem.vue';
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import WeatherIcon from '../ui/WeatherIcon.vue';
+import { WeatherVariants } from '@/types/weather';
 const location = ref('55.6744%2C37.8550')
 const { data: dataDay } = useWeather(location.value);
+const { data: dataIcon } = useWeatherIcon(location.value);
 const { data: dataWeek } = useWeatherWeak(location.value);
+
+const weatherIconType = computed<WeatherVariants | undefined>(() => {
+  if (!dataIcon.value) return undefined;
+  return dataIcon.value as WeatherVariants;
+});
 </script>
 
 <template>
@@ -18,7 +25,7 @@ const { data: dataWeek } = useWeatherWeak(location.value);
           <div class="weatherHeadBlock">
             <div class="weatherBlock">
               <div class="weatherIcon">
-                <IconSunny size="64"/>
+                <WeatherIcon :weather="weatherIconType"/>
               </div>
               <div class="temperature">
                 {{dataDay}} °C
@@ -40,6 +47,7 @@ const { data: dataWeek } = useWeatherWeak(location.value);
             v-for="dataOneDay in dataWeek" 
             :key="dataOneDay" 
             :temp="dataOneDay.temp" 
+            :icon="dataOneDay.icon" 
             :day="dataOneDay.datetime"/>
         </div>
       </div>

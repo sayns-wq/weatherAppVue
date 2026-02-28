@@ -10,6 +10,13 @@ export function useWeather(location: string) {
     enabled: !!location,
   })
 }
+export function useWeatherIcon(location: string) {
+  return useQuery({
+    queryKey: ['icon', 'current', location],
+    queryFn: () => userEndpoints.get(location).then((res) => res.data.currentConditions.icon),
+    enabled: !!location,
+  })
+}
 export function useWeatherWeak(location: string) {
   return useQuery({
     queryKey: ['weather', 'week', location],
