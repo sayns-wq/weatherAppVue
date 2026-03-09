@@ -16,9 +16,11 @@
   },
   "dependencies": {
     "@tanstack/vue-query": "^5.92.9",
+    "apexcharts": "^5.10.3",
     "axios": "^1.13.5",
     "pinia": "^3.0.4",
-    "vue": "beta"
+    "vue": "beta",
+    "vue3-apexcharts": "^1.11.1"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.4",

@@ -18,8 +18,8 @@ const weatherIconType = computed<WeatherVariants | undefined>(() => {
 </script>
 
 <template>
-    <div class="mainHead">Weather in you city</div>
-      <div class="secondaryHead">Current place</div>
+    <div class="mainHead">Погода в вашем городе</div>
+      <div class="secondaryHead">Текущее место</div>
       <div class="weatherHeadBlock">
         <div class="weatherBlock">
           <div class="weatherIcon">
@@ -29,9 +29,7 @@ const weatherIconType = computed<WeatherVariants | undefined>(() => {
             {{dataDay}} °C
           </div>
         </div>
-        <div class="weatherdescription">
-          {{weatherIconType}}
-        </div>
+
       </div>
 </template>
 

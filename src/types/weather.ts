@@ -9,3 +9,23 @@ export enum WeatherVariants {
   clear_day = 'clear-day',
   clear_night = 'clear-night',
 }
+
+export interface WeatherResponseDataDays {
+  temp: number
+  icon: WeatherVariants
+  datetime: Date
+  humidity: number
+  windspeed: number
+  pressure: number
+  uvindex: number
+}
+
+export interface WeatherResponse {
+  data: {
+    days: WeatherResponseDataDays[]
+    currentConditions: {
+      temp: number
+      icon: string
+    }
+  }
+}

@@ -10,7 +10,7 @@ const props = defineProps<{
 
 const headerDate = new Date();
 
-const formattedDate = headerDate.toLocaleDateString('en-US', {
+const formattedDate = headerDate.toLocaleDateString('ru-RU', {
   weekday: 'long',
   year: 'numeric',
   month: 'long',
@@ -18,7 +18,7 @@ const formattedDate = headerDate.toLocaleDateString('en-US', {
 });
 
 
-const subHeaderFormattedDate = headerDate.toLocaleDateString('en-US', {
+const subHeaderFormattedDate = headerDate.toLocaleDateString('ru-RU', {
   year: 'numeric',
   month: 'long',
 });
@@ -32,7 +32,7 @@ const subHeaderFormattedDate = headerDate.toLocaleDateString('en-US', {
       <div class="dateWeatherBlock">
           <WeatherListItem 
           v-for="dataOneDay in dataWeek" 
-          :key="dataOneDay" 
+          :key="dataOneDay.temp" 
           :temp="dataOneDay.temp" 
           :icon="dataOneDay.icon" 
           :day="dataOneDay.datetime"/>

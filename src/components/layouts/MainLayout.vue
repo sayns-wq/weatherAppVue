@@ -2,6 +2,7 @@
 import {  onMounted, ref } from 'vue';
 import LeftSideBlock from '../blocs/LeftSideBlock.vue';
 import RightSideBlock from '../blocs/RightSideBlock.vue';
+import WeatherBlock from '../blocs/WeatherBlock.vue';
 
 const location = ref<string>('')
 const geoError = ref<string | null>(null);
@@ -33,6 +34,9 @@ onMounted(() => {
       <div class="rightSide">
         <RightSideBlock :location="location"/>
       </div>
+      <div class="bottom">
+        <WeatherBlock :location="location"/>
+      </div>
   </div>
 
 </template>
@@ -43,17 +47,25 @@ onMounted(() => {
   display: grid;
   height: 100vh;
   width: 100vw;
-  grid-template-areas: "leftSide rightSide";
+  grid-template-areas: 
+  "leftSide rightSide"
+  "bottomSide bottomSide"
+  ;
   grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 1fr;
 }
 .leftSide{
-  grid-area: 'leftSide';
+  grid-area: leftSide;
   padding: 20px;
 
 }
 .rightSide{
-  grid-area: 'rightSide';
+  grid-area: rightSide;
   padding: 20px;
 }
 
+.bottom{
+  grid-area: bottomSide;
+  padding-top: 20px;
+}
 </style>
