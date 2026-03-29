@@ -30,8 +30,5 @@ const series =  computed(() => [{
 </template>
 
 <style scoped>
-.chartBackground{
-  background-color: #ffffff68;
-  border-radius: 30px;
-}
+
 </style>

@@ -15,9 +15,12 @@ onMounted(() => {
   navigator.geolocation.getCurrentPosition(
     (position) => {
       location.value = `${position.coords.latitude},${position.coords.longitude}`;
+      console.log(location.value)
+
     },
     (error) => {
       geoError.value = error.message;
+      console.log(error)
     },
     { enableHighAccuracy: true, timeout: 5000 }
   );
